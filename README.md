@@ -1,9 +1,9 @@
 # surveygizmo
 Promise based Javascript client for the Survey Gizmo API
 
-``npm install surveygizmo``
+``npm install surveygizmo-client``
 
-    var SurveyGizmo = require('surveygizmo');
+    var SurveyGizmo = require('surveygizmo-client');
     var sgizmo = new SurveyGizmo({
         username: 'xxxxx',
         password: 'xxxxxx',
