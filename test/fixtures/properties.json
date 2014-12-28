@@ -1,0 +1,16 @@
+{
+  "properties" : [
+    {"question_description_above" : true },
+    {"input_mask" : {
+      "message" : "this is a message",
+      "other" : 5
+      }
+    },
+    {"outbound" : [
+        {"fieldname" : "testField1", "mapping" : "testMapping1", "default" : 0},
+        {"fieldname" : "testField2", "mapping" : "testMapping2", "default" : 1}
+      ]
+    }
+
+  ]
+}

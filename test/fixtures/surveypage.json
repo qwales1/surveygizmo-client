@@ -1,0 +1,5 @@
+{
+  "title"	: "My New Page",
+  "description" : "Page description text",
+  "properties" : [{"hidden" :true}]
+}

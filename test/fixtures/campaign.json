@@ -1,0 +1,8 @@
+{
+
+  "type" : "email",
+  "name" : "New Email Campaign",
+  "status" : "active",
+  "tokenvariables" : "var%3Dvalue%26var2%3d=value"
+
+}

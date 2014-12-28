@@ -1,0 +1,23 @@
+{
+  "name": "surveygizmo",
+  "version": "0.1.0",
+  "description": "Promise based Javascript client for the Survey Gizmo API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "author": "Chris Wales <qwales1@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "randomstring": "^1.0.3",
+    "should": "^4.4.1",
+    "sinon": "^1.12.2"
+  },
+  "dependencies": {
+    "bluebird": "^2.4.0",
+    "lodash": "^2.4.1",
+    "request": "^2.51.0",
+    "traverse": "^0.6.6"
+  }
+}

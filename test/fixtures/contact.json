@@ -1,0 +1,23 @@
+{
+  "semailaddress" :	"email@email.com",
+  "sfirstname"	: "John",
+  "slastname"	: "Doe",
+  "sorganization"	: "SurveyGizmo",
+  "sdivision" :	"Division Name",
+  "sdepartment" :	"Department Name",
+  "sgroup" :	"Group Name",
+  "srole" :	"Role Name",
+  "steam" :	"Team Name",
+  "shomephone" :	"999-999-9998",
+  "sfaxphone" :	"999-999-9997",
+  "sbusinessphone" :	"999-999-9996",
+  "smailingaddress" :	"123 Main St",
+  "smailingaddress2" :	"Suite 101",
+  "smailingaddresscity" :	"Anycity",
+  "smailingadressstate"	:	"CO",
+  "smailingaddresscountry" :	"US",
+  "smailingaddresspostal" :	"99997",
+  "stitle" :	"Title",
+  "surl" :	"www.surveygizmo.com",
+  "custom[happy]" : "Yes!"
+}

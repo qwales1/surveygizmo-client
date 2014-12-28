@@ -1,0 +1,5 @@
+{
+
+  "result" : "&properties[question_description_above]=true&properties[input_mask][message]=this is a message&properties[input_mask][other]=5&properties[outbound][0][fieldname]=testField1&properties[outbound][0][mapping]=testMapping1&properties[outbound][0][default]=0&properties[outbound][1][fieldname]=testField2&properties[outbound][1][mapping]=testMapping2&properties[outbound][1][default]=1"
+
+}
