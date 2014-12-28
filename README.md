@@ -24,7 +24,7 @@ Promise based Javascript client for the Survey Gizmo API
 
   version : API Version (***optional***) Defaults to head
 
-  ##Tests :
+##Tests
 
 Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
 
