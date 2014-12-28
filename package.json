@@ -1,7 +1,7 @@
 {
   "name": "surveygizmo-client",
   "version": "0.1.0",
-  "description": "Promise based Javascript client for the Survey Gizmo API",
+  "description": "Promise based client for the Survey Gizmo API",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*.js"
