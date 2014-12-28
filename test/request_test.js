@@ -1,5 +1,6 @@
 var should = require('should');
 var rando = require('randomstring');
+var md5 = require('MD5')
 function loadFixture(name){
   return JSON.parse(require('fs')
   .readFileSync(require('path').join(__dirname, '/fixtures/'+ name)));
@@ -24,7 +25,7 @@ describe('SGizmo Request Object', function(){
     options = {
       username: acct.username,
       password: acct.password,
-      version: 'v2'
+      version: 'v4'
     };
     done();
   });
@@ -41,7 +42,7 @@ describe('SGizmo Request Object', function(){
   });
   it('should have the auth property set when instantiated', function(done){
     var req = new Req(options);
-    req.should.have.property('auth', 'user:pass=' + options.username +':'+ options.password);
+    req.should.have.property('auth', 'user:md5=' + options.username +':'+ md5(options.password));
     done();
   });
   it('should have _setEndpoint() method', function(done){
@@ -61,7 +62,7 @@ describe('SGizmo Request Object', function(){
   });
   it('should set the version if the option is passed to the constructor', function(done){
     var req = new Req(options);
-    req.version.should.be.exactly('v2');
+    req.version.should.be.exactly('v4');
     done();
   });
   describe('#_setEndpoint() method', function(){

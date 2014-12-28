@@ -1,5 +1,5 @@
 {
-  "name": "surveygizmo",
+  "name": "surveygizmo-client",
   "version": "0.1.0",
   "description": "Promise based Javascript client for the Survey Gizmo API",
   "main": "index.js",
@@ -15,9 +15,24 @@
     "sinon": "^1.12.2"
   },
   "dependencies": {
+    "MD5": "^1.2.1",
     "bluebird": "^2.4.0",
     "lodash": "^2.4.1",
     "request": "^2.51.0",
     "traverse": "^0.6.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qwales1/surveygizmo-client.git"
+  },
+  "keywords": [
+    "surveygizmo"
+  ],
+  "bugs": {
+    "url": "https://github.com/qwales1/surveygizmo-client/issues"
+  },
+  "homepage": "https://github.com/qwales1/surveygizmo-client"
 }
