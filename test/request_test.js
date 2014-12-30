@@ -50,9 +50,9 @@ describe('SGizmo Request Object', function(){
     req._setEndpoint.should.be.a.Function;
     done()
   });
-  it('should have _setPayload() method', function(done){
+  it('should have _setParams() method', function(done){
     var req = new Req(options);
-    req._setPayload.should.be.a.Function;
+    req._setParams.should.be.a.Function;
     done();
   });
   it('should have send() method', function(done){
@@ -70,8 +70,8 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = rando.generate();
       req._setEndpoint(endpoint)
-        .then(function(){
-          req.should.have.property('endpoint', apiVersions.head+'/'+endpoint);
+        .then(function(result){
+          result.should.be.exactly(apiVersions.head+'/'+endpoint);
           done();
         })
         .catch(function(err){
@@ -82,8 +82,8 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = rando.generate();
       req._setEndpoint(endpoint, 'v1')
-      .then(function(){
-        req.should.have.property('endpoint', apiVersions.v1+'/'+endpoint);
+      .then(function(result){
+        result.should.be.exactly(apiVersions.v1+'/'+endpoint);
         done();
       })
       .catch(function(err){
@@ -94,8 +94,8 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = rando.generate();
       req._setEndpoint(endpoint, 'v2')
-      .then(function(){
-        req.should.have.property('endpoint', apiVersions.v2+'/'+endpoint);
+      .then(function(result){
+        result.should.be.exactly( apiVersions.v2+'/'+endpoint);
         done();
       })
       .catch(function(err){
@@ -106,8 +106,8 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = rando.generate();
       req._setEndpoint(endpoint, 'v3')
-      .then(function(){
-        req.should.have.property('endpoint', apiVersions.v3+'/'+endpoint);
+      .then(function(result){
+        result.should.be.exactly(apiVersions.v3+'/'+endpoint);
         done();
       })
       .catch(function(err){
@@ -118,8 +118,8 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = rando.generate();
       req._setEndpoint(endpoint, 'v4')
-      .then(function(){
-        req.should.have.property('endpoint', apiVersions.v4+'/'+endpoint);
+      .then(function(result){
+        result.should.be.exactly(apiVersions.v4+'/'+endpoint);
         done();
       })
       .catch(function(err){
@@ -127,42 +127,7 @@ describe('SGizmo Request Object', function(){
       });
     });
   });
-
- describe('#_setProperties() method', function(){
-    it('should return a string of parsed properties', function(done){
-      var fixture = loadFixture('properties.json');
-      var parsed = loadFixture('props_parsed.json');
-      var req = new Req(options);
-      req._setProperties(fixture)
-        .then(function(res){
-          res.should.be.exactly(parsed.result);
-          done();
-        })
-        .catch(function(err){
-          done(err);
-        });
-    });
-  });
-  describe('#_setFilters() method', function(){
-    it('should return a string of parsed filters', function(done){
-        var testFilters = [
-        {field: rando.generate(), operator: '=', value : rando.generate()},
-        {field: rando.generate(), operator: '>', value : rando.generate()},
-        {field: rando.generate(), operator: '<>', value : rando.generate()}
-        ];
-        var req = new Req(options);
-        req._setFilters(testFilters)
-          .then(function(result){
-            result.should.be.a.String;
-            result.indexOf(testFilters[0].field).should.not.be.exactly(-1);
-            done();
-          })
-          .catch(function(err){
-            done(err);
-          })
-    });
-  });
-  describe('#_setPayload() method', function(){
+  describe('#_setParams() method', function(){
       it('should set the payload property on the request object', function(done){
         var req = new Req(options);
         var payload = {
@@ -170,11 +135,10 @@ describe('SGizmo Request Object', function(){
           'key2' : rando.generate(),
           'key3' : rando.generate()
         };
-        req._setPayload(payload)
-        .then(function(){
-          req.should.have.property('payload');
-          var mock = 'key1='+payload.key1+'&key2='+payload.key2+'&key3='+payload.key3;
-          req.payload.should.be.exactly(mock)
+        req._setParams(payload)
+        .then(function(result){
+          var fixture = '&key1='+payload.key1+'&key2='+payload.key2+'&key3='+payload.key3;
+          result.should.be.exactly(fixture)
           done();
         })
         .catch(function(err){
@@ -187,26 +151,47 @@ describe('SGizmo Request Object', function(){
           'key1' : rando.generate(),
           'key2' : rando.generate(),
           'key3' : rando.generate(),
-          'filters' : [
+          'properties' : {
+            'question_description_above' : true ,
+            'input_mask' : {
+              'message' : 'this is a message',
+              'other' : 5
+            },
+            'outbound' : [
+                {"fieldname" : "testField1", "mapping" : "testMapping1", "default" : 0},
+                {"fieldname" : "testField2", "mapping" : "testMapping2", "default" : 1}
+              ]
+          },
+          'key4' : {'subKey4' : {'key' : 'value'}},
+          'filter' : [
             {field: rando.generate(), operator: '=', value: rando.generate()},
             {field: rando.generate(), operator: '<>', value: rando.generate()},
             {field: rando.generate(), operator: '<', value: rando.generate()}
           ]
         };
-        req._setPayload(payloadFilter)
-        .then(function(){
-          req.should.have.property('payload');
-          var result = 'key1='+payloadFilter.key1+'&key2='+payloadFilter.key2+'&key3='+payloadFilter.key3;
-          result+='&filter[field][0]='+payloadFilter.filters[0].field;
-          result+='&filter[operator][0]='+payloadFilter.filters[0].operator;
-          result+='&filter[value][0]='+payloadFilter.filters[0].value;
-          result+='&filter[field][1]='+payloadFilter.filters[1].field;
-          result+='&filter[operator][1]='+payloadFilter.filters[1].operator;
-          result+='&filter[value][1]='+payloadFilter.filters[1].value;
-          result+='&filter[field][2]='+payloadFilter.filters[2].field;
-          result+='&filter[operator][2]='+payloadFilter.filters[2].operator;
-          result+='&filter[value][2]='+payloadFilter.filters[2].value;
-          req.payload.should.be.exactly(result)
+        req._setParams(payloadFilter)
+        .then(function(result){
+          var fixture = '&key1='+payloadFilter.key1+'&key2='+payloadFilter.key2+'&key3='+payloadFilter.key3;
+          fixture+='&properties[question_description_above]=true';
+          fixture+='&properties[input_mask][message]=this is a message';
+          fixture+='&properties[input_mask][other]=5';
+          fixture+='&properties[outbound][0][fieldname]=testField1';
+          fixture+='&properties[outbound][0][mapping]=testMapping1';
+          fixture+='&properties[outbound][0][default]=0';
+          fixture+='&properties[outbound][1][fieldname]=testField2';
+          fixture+='&properties[outbound][1][mapping]=testMapping2';
+          fixture+='&properties[outbound][1][default]=1';
+          fixture+='&key4[subKey4][key]=value';
+          fixture+='&filter[field][0]='+payloadFilter.filter[0].field;
+          fixture+='&filter[operator][0]='+payloadFilter.filter[0].operator;
+          fixture+='&filter[value][0]='+payloadFilter.filter[0].value;
+          fixture+='&filter[field][1]='+payloadFilter.filter[1].field;
+          fixture+='&filter[operator][1]='+payloadFilter.filter[1].operator;
+          fixture+='&filter[value][1]='+payloadFilter.filter[1].value;
+          fixture+='&filter[field][2]='+payloadFilter.filter[2].field;
+          fixture+='&filter[operator][2]='+payloadFilter.filter[2].operator;
+          fixture+='&filter[value][2]='+payloadFilter.filter[2].value;
+          result.should.be.exactly(fixture)
           done();
         }.bind(this))
         .catch(function(err){
@@ -220,8 +205,9 @@ describe('SGizmo Request Object', function(){
       var req = new Req(options);
       var endpoint = 'account';
       req._setMethod('post')
-      .then(function(){
-        req.should.have.property('method');
+      .then(function(result){
+
+        result.should.be.exactly('&_method=POST');
         done();
       })
       .catch(function(err){

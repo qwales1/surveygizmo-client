@@ -1,5 +1,5 @@
 {
-  "properties" : [
+  "properties" : {
     {"question_description_above" : true },
     {"input_mask" : {
       "message" : "this is a message",
@@ -12,5 +12,5 @@
       ]
     }
 
-  ]
+  }
 }

@@ -5,11 +5,11 @@
   "after" : "1",
   "varname" : "main_question",
   "shortname" : "shorty",
-  "properties" : [
-    {"disabled" : false},
-    {"hidden" : false},
-    {"exclude_number" : true},
-    {"hide_after_response": true},
-    {"orientation": "HORZ"}
-  ]
+  "properties" : {
+    "disabled" : false,
+    "hidden" : false,
+    "exclude_number" : true,
+    "hide_after_response": true,
+    "orientation": "HORZ"
+  }
 }
