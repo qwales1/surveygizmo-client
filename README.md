@@ -74,6 +74,8 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
 
 ``getUser(userId)``
 
+``deleteUser(userId)``
+
 ##Contact List Object
 
 Available Options:
