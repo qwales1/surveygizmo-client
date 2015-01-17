@@ -217,7 +217,7 @@ describe('SGizmo Request Object', function(){
   });
   describe('#send() method', function(){
     it('should send the request to Survey Gizmo with no payload', function(done){
-      this.timeout(60000)
+      this.timeout(10000)
       var req = new Req(options);
       var endpoint = 'account';
       req.send(endpoint)

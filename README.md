@@ -24,19 +24,6 @@ Promise based Javascript client for the Survey Gizmo API
 
   version : API Version (***optional***) Defaults to head
 
-##Tests
-
-Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
-
-    {
-      "username" : "xxxxxxx",
-      "password" : "xxxxxxx",
-      "reportId" : "2214722",
-      "surveyId" : "537561"
-    }
-
-Run : ``npm test``
-
 #API
 
 ###Account Object
@@ -257,3 +244,16 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyreport-sub-object
 ``updateReport(surveyId,reportId,options)``
 
 ``deleteReport(surveyId,reportId)``
+
+##Tests
+
+Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
+
+{
+  "username" : "xxxxxxx",
+  "password" : "xxxxxxx",
+  "reportId" : "2214722",
+  "surveyId" : "537561"
+}
+
+Run : ``npm test``
