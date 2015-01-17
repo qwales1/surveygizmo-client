@@ -3,257 +3,311 @@ Promise based Javascript client for the Survey Gizmo API
 
 ``npm install surveygizmo-client``
 
-    var SurveyGizmo = require('surveygizmo-client');
-    var sgizmo = new SurveyGizmo({
-        username: 'xxxxx',
-        password: 'xxxxxx',
-        version: 'v4'
-    });
-    sgizmo.getResponses(surveyId,options).then(function(responses){
-        console.log(responses);
+var SurveyGizmo = require('surveygizmo-client');
+var sgizmo = new SurveyGizmo({
+  username: 'xxxxx',
+  password: 'xxxxxx',
+  version: 'v4'
+  });
+  sgizmo.getResponses(surveyId,options).then(function(responses){
+    console.log(responses);
     }).catch(function(err){
-        console.log(err)
-    });
+      console.log(err)
+      });
 
 
-  Options :
+      Options :
 
-  username: Survey Gizmo username (***required***)
+      username: Survey Gizmo username (***required***)
 
-  password : Survey Gizmo password (***required***)
+      password : Survey Gizmo password (***required***)
 
-  version : API Version (***optional***) Defaults to head
+      version : API Version (***optional***) Defaults to head
 
-#API
+      #API
+      =======
 
-###Account Object
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/account-object
+      ***Examples***
 
-``getAccount()``
+      Get two responses with a status complete and where question 5 has a value of 'Yes'
 
-###Account Team Object
-Available Options:
+      sgizmo.getResponses(surveyId, {
+        resultsperpage: 2,
+        filter : [
+        {field : 'status', operator : '=', value : 'complete'},
+        {field: '[question(5)]', operator : '=', value: 'Yes'}
+        ]
+        }).then(function(res){
+          console.log(res)
+          })
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
+          Create a new question in a survey
 
-``getTeams(options)``
 
-``createTeam(options)``
+          sgizmo.createQuestion(surveyId, pageId, {
+            type : 'text',
+            description : 'This is a description',
+            title : 'Enter your name',
+            after : '1',
+            varname : 'name',
+            shortname : 'short',
+            properties : {
+              disabled : false,
+              hidden : false,
+              exclude_number : true,
+              hide_after_response: true,
+              orientation : 'VERT'
+            }
+            }).then(function(res){
+              console.log(res);
+              });
 
-``updateTeam(options)``
+              Create a new Poll
 
-``deleteTeam(teamId)``
+              sgizmo.createSurvey({
+                title : 'Test Poll',
+                type : 'poll',
+                status : 'launched',
+                theme	: 63989,
+                polloptions	: ['Red Sox', 'Yankees'],
+                polltype : 'ranking',
+                pollwidth: 600
+                }).then(function(res){
+                  console.log(res);
+                })
 
 
-##Account User Object
 
-Available Options:
+                  ###Account Object
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/account-object
 
+                  ``getAccount()``
 
-``getUsers(options)``
+                  ###Account Team Object
+                  Available Options:
 
-``createUser(options)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
 
-``updateUser(userId,options)``
+                  ``getTeams(options)``
 
-``getUser(userId)``
+                  ``createTeam(options)``
 
-``deleteUser(userId)``
+                  ``updateTeam(options)``
 
-##Contact List Object
+                  ``deleteTeam(teamId)``
 
-Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/contactlist-object
+                  ##Account User Object
 
-``getContactLists(options)``
+                  Available Options:
 
-``getContactList(listId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
 
-``createContactList(options)``
 
-``updateContactList(listId, options)``
+                  ``getUsers(options)``
 
-##Survey Object
+                  ``createUser(options)``
 
-Available Options:
+                  ``updateUser(userId,options)``
 
+                  ``getUser(userId)``
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
+                  ``deleteUser(userId)``
 
-``getSurveys(options)``
+                  ##Contact List Object
 
-``getSurvey(surveyId)``
+                  Available Options:
 
-``createSurvey(options)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/contactlist-object
 
-``updateSurvey(surveyId, options)``
+                  ``getContactLists(options)``
 
-``deleteSurvey(surveyId)``
+                  ``getContactList(listId)``
 
+                  ``createContactList(options)``
 
-##Survey Page Sub-Object
+                  ``updateContactList(listId, options)``
 
-Available Options:
+                  ##Survey Object
 
+                  Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 
-``getPages(surveyId,options)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 
-``getPage(surveyId, pageId)``
+                  ``getSurveys(options)``
 
-``createPage(surveyId,options)``
+                  ``getSurvey(surveyId)``
 
-``updatePage(surveyId,pageId,options)``
+                  ``createSurvey(options)``
 
-``deletePage(surveyId,pageId)``
+                  ``updateSurvey(surveyId, options)``
 
+                  ``deleteSurvey(surveyId)``
 
-##Survey Question Sub-Object
 
-Available Options:
+                  ##Survey Page Sub-Object
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyquestion-sub-object
+                  Available Options:
 
-``getQuestions(surveyId)``
 
-``getQuestion(surveyId, questionId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 
-``createQuestion(surveyId,pageId,options)``
+                  ``getPages(surveyId,options)``
 
-``updateQuestion(surveyId,pageId,questionId,options)``
+                  ``getPage(surveyId, pageId)``
 
-``deleteQuestion(surveyId,pageId,questionId)``
+                  ``createPage(surveyId,options)``
 
-##Survey Option Sub-Object
+                  ``updatePage(surveyId,pageId,options)``
 
-Available Options:
+                  ``deletePage(surveyId,pageId)``
 
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyoption-sub-object
+                  ##Survey Question Sub-Object
 
+                  Available Options:
 
-``getOptions(surveyId,questionId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveyquestion-sub-object
 
-``getOption(surveyId, questionId, optionId)``
+                  ``getQuestions(surveyId)``
 
-``createOption(surveyId,pageId,questionId,options)``
+                  ``getQuestion(surveyId, questionId)``
 
-``updateOption(surveyId,pageId,questionId,optionId, options)``
+                  ``createQuestion(surveyId,pageId,options)``
 
-``deleteQuestion(surveyId,pageId,questionId)``
+                  ``updateQuestion(surveyId,pageId,questionId,options)``
 
-##Survey Campaign Sub-Object
+                  ``deleteQuestion(surveyId,pageId,questionId)``
 
-Available Options:
+                  ##Survey Option Sub-Object
 
+                  Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveycampaign-sub-object
 
-``getCampaigns(surveyId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveyoption-sub-object
 
-``getCampaign(surveyId, campaignId)``
 
-``createCampaign(surveyId,options)``
+                  ``getOptions(surveyId,questionId)``
 
-``updateCampaign(surveyId,campaignId,options)``
+                  ``getOption(surveyId, questionId, optionId)``
 
-``deleteCampaign(surveyId,campaignId)``
+                  ``createOption(surveyId,pageId,questionId,options)``
 
+                  ``updateOption(surveyId,pageId,questionId,optionId, options)``
 
-##Contact Sub-Object
+                  ``deleteQuestion(surveyId,pageId,questionId)``
 
-Available Options:
+                  ##Survey Campaign Sub-Object
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/contact-sub-object
+                  Available Options:
 
-``getContacts(surveyId,campaignId)``
 
-``getContact(surveyId,campaignId,contactId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveycampaign-sub-object
 
-``createContact(surveyId,campaignId,options)``
+                  ``getCampaigns(surveyId)``
 
-``updateContact(surveyId,campaignId,contactId,options)``
+                  ``getCampaign(surveyId, campaignId)``
 
-``deleteContact(surveyId,campaignId)``
+                  ``createCampaign(surveyId,options)``
 
-##Email Message Sub-Object
+                  ``updateCampaign(surveyId,campaignId,options)``
 
-Available Options:
+                  ``deleteCampaign(surveyId,campaignId)``
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/emailmessage-sub-object
 
-``getMessages(surveyId,campaignId)``
+                  ##Contact Sub-Object
 
-``getMessage(surveyId,campaignId,contactId,messageId)``
+                  Available Options:
 
-``createMessage(surveyId,campaignId,options)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/contact-sub-object
 
-``updateMessage(surveyId,campaignId,messageId,options)``
+                  ``getContacts(surveyId,campaignId)``
 
-``deleteMessage(surveyId,campaignId,messageId)``
+                  ``getContact(surveyId,campaignId,contactId)``
 
+                  ``createContact(surveyId,campaignId,options)``
 
-##Survey Response Sub-Object
+                  ``updateContact(surveyId,campaignId,contactId,options)``
 
-Available Options:
+                  ``deleteContact(surveyId,campaignId)``
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyresponse-sub-object
+                  ##Email Message Sub-Object
 
-``getResponses(surveyId,options)``
+                  Available Options:
 
-``getResponse(surveyId,responseId)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/emailmessage-sub-object
 
-``createResponse(surveyId,options)``
+                  ``getMessages(surveyId,campaignId)``
 
-``updateResponse(surveyId,responseId,options)``
+                  ``getMessage(surveyId,campaignId,contactId,messageId)``
 
-``deleteResponse(surveyId,responseId)``
+                  ``createMessage(surveyId,campaignId,options)``
 
+                  ``updateMessage(surveyId,campaignId,messageId,options)``
 
-##Survey Statistic Sub-Object
+                  ``deleteMessage(surveyId,campaignId,messageId)``
 
-Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
+                  ##Survey Response Sub-Object
 
-``getStats(surveyId,options)``
+                  Available Options:
 
-##Survey Statistic Sub-Object
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveyresponse-sub-object
 
-Available Options:
+                  ``getResponses(surveyId,options)``
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
+                  ``getResponse(surveyId,responseId)``
 
-``getStats(surveyId,options)``
+                  ``createResponse(surveyId,options)``
 
-##Survey Report Sub-Object
+                  ``updateResponse(surveyId,responseId,options)``
 
-Available Options:
+                  ``deleteResponse(surveyId,responseId)``
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyreport-sub-object
 
-``getReports(surveyId,options)``
+                  ##Survey Statistic Sub-Object
 
-``getReport(surveyId,reportId)``
+                  Available Options:
 
-``updateReport(surveyId,reportId,options)``
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
-``deleteReport(surveyId,reportId)``
+                  ``getStats(surveyId,options)``
 
-##Tests
+                  ##Survey Statistic Sub-Object
 
-Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
+                  Available Options:
 
-{
-  "username" : "xxxxxxx",
-  "password" : "xxxxxxx",
-  "reportId" : "2214722",
-  "surveyId" : "537561"
-}
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
-Run : ``npm test``
+                  ``getStats(surveyId,options)``
+
+                  ##Survey Report Sub-Object
+
+                  Available Options:
+
+                  http://apisurveygizmo.helpgizmo.com/help/article/link/surveyreport-sub-object
+
+                  ``getReports(surveyId,options)``
+
+                  ``getReport(surveyId,reportId)``
+
+                  ``updateReport(surveyId,reportId,options)``
+
+                  ``deleteReport(surveyId,reportId)``
+
+                  ##Tests
+
+                  Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
+
+
+                  {
+                    "username" : "xxxxxxx",
+                    "password" : "xxxxxxx",
+                    "reportId" : "2214722",
+                    "surveyId" : "537561"
+                  }
+
+                  Run : ``npm test``
