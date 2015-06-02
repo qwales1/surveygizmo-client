@@ -9,16 +9,16 @@
   "author": "Chris Wales <qwales1@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.0.1",
-    "randomstring": "^1.0.3",
-    "should": "^4.4.1",
-    "sinon": "^1.12.2"
+    "mocha": "^2.2.5",
+    "randomstring": "^1.0.6",
+    "should": "^6.0.3",
+    "sinon": "^1.14.1"
   },
   "dependencies": {
-    "MD5": "^1.2.1",
-    "bluebird": "^2.4.0",
-    "lodash": "^2.4.1",
-    "request": "^2.51.0",
+    "MD5": "^1.2.2",
+    "bluebird": "^2.9.27",
+    "lodash": "^3.9.3",
+    "request": "^2.57.0",
     "traverse": "^0.6.6"
   },
   "directories": {
