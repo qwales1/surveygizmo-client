@@ -1340,7 +1340,6 @@ describe('SGizmo Client', function(){
         var opts = {filters : [{field: 'subtype', operator: '=', value: 'survey'}]}
         client.getResponses(surveyId, opts)
         .then(function(res){
-          console.log(res);
           res.result_ok.should.be.exactly(true);
           done();
         })
