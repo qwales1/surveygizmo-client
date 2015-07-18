@@ -18,7 +18,8 @@
     "MD5": "^1.2.2",
     "bluebird": "^2.9.27",
     "lodash": "^3.9.3",
-    "request": "^2.57.0",
+    "superagent": "^1.2.0",
+    "superagent-bluebird-promise": "^2.0.2",
     "traverse": "^0.6.6"
   },
   "directories": {
