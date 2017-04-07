@@ -24,7 +24,7 @@ Options :
 
   version : API Version (***optional***) Defaults to head
 
-#API
+API
 =======
 
 
@@ -78,13 +78,13 @@ Create a new Poll
 
 
 
- ###Account Object
+### Account Object
 
  http://apisurveygizmo.helpgizmo.com/help/article/link/account-object
 
 ``getAccount()``
 
-###Account Team Object
+### Account Team Object
 Available Options:
 
 http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
@@ -98,7 +98,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
 ``deleteTeam(teamId)``
 
 
-##Account User Object
+## Account User Object
 
 Available Options:
 
@@ -115,7 +115,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
 
 ``deleteUser(userId)``
 
-##Contact List Object
+## Contact List Object
 
 Available Options:
 
@@ -129,7 +129,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/contactlist-object
 
 ``updateContactList(listId, options)``
 
-##Survey Object
+## Survey Object
 
 Available Options:
 
@@ -147,7 +147,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 ``deleteSurvey(surveyId)``
 
 
-##Survey Page Sub-Object
+## Survey Page Sub-Object
 
 Available Options:
 
@@ -164,8 +164,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 
 ``deletePage(surveyId,pageId)``
 
-
-##Survey Question Sub-Object
+## Survey Question Sub-Object
 
 Available Options:
 
@@ -181,7 +180,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyquestion-sub-object
 
 ``deleteQuestion(surveyId,pageId,questionId)``
 
-##Survey Option Sub-Object
+## Survey Option Sub-Object
 
 Available Options:
 
@@ -199,7 +198,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyoption-sub-object
 
 ``deleteQuestion(surveyId,pageId,questionId)``
 
-##Survey Campaign Sub-Object
+## Survey Campaign Sub-Object
 
 Available Options:
 
@@ -217,7 +216,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveycampaign-sub-object
 ``deleteCampaign(surveyId,campaignId)``
 
 
-##Contact Sub-Object
+## Contact Sub-Object
 
 Available Options:
 
@@ -233,7 +232,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/contact-sub-object
 
 ``deleteContact(surveyId,campaignId)``
 
-##Email Message Sub-Object
+## Email Message Sub-Object
 
 Available Options:
 
@@ -250,7 +249,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/emailmessage-sub-object
 ``deleteMessage(surveyId,campaignId,messageId)``
 
 
-##Survey Response Sub-Object
+## Survey Response Sub-Object
 
 Available Options:
 
@@ -267,7 +266,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyresponse-sub-object
 ``deleteResponse(surveyId,responseId)``
 
 
-##Survey Statistic Sub-Object
+## Survey Statistic Sub-Object
 
 Available Options:
 
@@ -275,7 +274,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
 ``getStats(surveyId,options)``
 
-##Survey Statistic Sub-Object
+## Survey Statistic Sub-Object
 
 Available Options:
 
@@ -283,7 +282,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
 ``getStats(surveyId,options)``
 
-##Survey Report Sub-Object
+## Survey Report Sub-Object
 
 Available Options:
 
@@ -297,7 +296,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyreport-sub-object
 
 ``deleteReport(surveyId,reportId)``
 
-##Tests
+## Tests
 
 Make a json file named account.json with your username and password and put it in the test/fixtures directory. Optionally add a surveyId and reportId of an actual report to run tests that endpoint. There is no way to create reports through the API at this time, so using an existing report is necessary.
 
