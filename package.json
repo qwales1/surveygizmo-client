@@ -1,6 +1,6 @@
 {
   "name": "surveygizmo-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Promise based client for the Survey Gizmo API",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "dependencies": {
     "MD5": "^1.2.2",
     "bluebird": "^2.9.27",
-    "lodash": "^3.9.3",
+    "lodash": "^4.17.20",
     "superagent-bluebird-promise": "^2.0.2",
     "traverse": "^0.6.6"
   },
