@@ -80,14 +80,14 @@ Create a new Poll
 
 ### Account Object
 
- http://apisurveygizmo.helpgizmo.com/help/article/link/account-object
+https://apihelp.alchemer.com/help/account-object
 
 ``getAccount()``
 
 ### Account Team Object
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
+https://apihelp.alchemer.com/help/accountteams-object
 
 ``getTeams(options)``
 
@@ -102,7 +102,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/accountteams-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
+https://apihelp.alchemer.com/help/accountuser-object
 
 
 ``getUsers(options)``
@@ -119,7 +119,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/accountuser-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/contactlist-object
+https://apihelp.alchemer.com/help/contactlist-object
 
 ``getContactLists(options)``
 
@@ -134,7 +134,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/contactlist-object
 Available Options:
 
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
+https://apihelp.alchemer.com/help/survey-object
 
 ``getSurveys(options)``
 
@@ -152,7 +152,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 Available Options:
 
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
+https://apihelp.alchemer.com/help/surveypage-sub-object
 
 ``getPages(surveyId,options)``
 
@@ -168,7 +168,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/survey-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyquestion-sub-object
+https://apihelp.alchemer.com/help/surveyquestion-sub-object
 
 ``getQuestions(surveyId)``
 
@@ -185,7 +185,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyquestion-sub-object
 Available Options:
 
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyoption-sub-object
+https://apihelp.alchemer.com/help/surveyoption-sub-object
 
 
 ``getOptions(surveyId,questionId)``
@@ -203,7 +203,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyoption-sub-object
 Available Options:
 
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveycampaign-sub-object
+https://apihelp.alchemer.com/help/surveycampaign-sub-object
 
 ``getCampaigns(surveyId)``
 
@@ -220,7 +220,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveycampaign-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/contact-sub-object
+https://apihelp.alchemer.com/help/contact-sub-object
 
 ``getContacts(surveyId,campaignId)``
 
@@ -236,7 +236,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/contact-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/emailmessage-sub-object
+https://apihelp.alchemer.com/help/emailmessage-sub-object
 
 ``getMessages(surveyId,campaignId)``
 
@@ -253,7 +253,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/emailmessage-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyresponse-sub-object
+https://apihelp.alchemer.com/help/surveyresponse-sub-object
 
 ``getResponses(surveyId,options)``
 
@@ -270,7 +270,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveyresponse-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
+https://apihelp.alchemer.com/help/surveystatistic-sub-object
 
 ``getStats(surveyId,options)``
 
@@ -278,7 +278,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
+https://apihelp.alchemer.com/help/surveystatistic-sub-object
 
 ``getStats(surveyId,options)``
 
@@ -286,7 +286,7 @@ http://apisurveygizmo.helpgizmo.com/help/article/link/surveystatistic-sub-object
 
 Available Options:
 
-http://apisurveygizmo.helpgizmo.com/help/article/link/surveyreport-sub-object
+https://apihelp.alchemer.com/help/surveyreport-sub-object
 
 ``getReports(surveyId,options)``
 
